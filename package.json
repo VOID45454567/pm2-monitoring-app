@@ -1,0 +1,22 @@
+{
+  "name": "pm2-ts",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.4",
+    "@types/config": "^3.3.5",
+    "@types/express": "^5.0.6",
+    "@types/nodemailer": "^7.0.11",
+    "axios": "^1.13.6",
+    "config": "^4.4.1",
+    "express": "^5.2.1",
+    "nodemailer": "^8.0.3"
+  }
+}

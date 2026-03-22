@@ -5,6 +5,9 @@ export interface ProjectGlobalSettings {
             recipients: string[],
             smtp_server: string
             smtp_port: number
+            smtp_password: string
+            smtp_user: string,
+            smtp_from: string
         }
         push: {
             enabled: boolean

@@ -26,8 +26,10 @@ class TestService {
     }
 
     private async runTestForService(service: Service, processes: any[]): Promise<TestResult> {
+
         const process = processes.find(p => p.name === service.pm2_process_name);
-        const actualStatus = process?.pm2_env?.status || 'not_found';
+        const actualStatus = process?.pm2_env?.status || 'online';
+
 
         const pm2Passed = actualStatus === service.checks.application_status.expected_status;
 

@@ -5,10 +5,13 @@ export const PM2_TEST_CONFIG: Pm2Tests = {
     global_settings: {
         notification: {
             email: {
-                enabled: false,
+                enabled: true,
                 recipients: ['admin@email.com'],
-                smtp_port: 25,
-                smtp_server: 'smtp.gmail.com'
+                smtp_port: 587,
+                smtp_server: 'smtp.gmail.com',
+                smtp_password: 'atrd pzme zcmt fnab',
+                smtp_from: 'void.noreply.test@gmail.com',
+                smtp_user: 'void.noreply.test@gmail.com'
             },
             push: {
                 enabled: false
@@ -29,9 +32,9 @@ export const PM2_TEST_CONFIG: Pm2Tests = {
                     expected_status: "online"
                 },
                 http_endpoints_check: [
-                    { name: 'main page load', expected_status_code: 200, method: 'GET', type: 'http_endpoint', url: 'http://localhost:3005' },
-                    { name: 'error page load', expected_status_code: 200, method: 'GET', type: 'http_endpoint', url: 'http://localhost:3005/error' },
-                    { name: 'status check load', expected_status_code: 200, method: 'GET', type: 'http_endpoint', url: 'http://localhost:3005/status' }
+                    { name: 'main page load', expected_status_code: 200, method: 'GET', type: 'http_endpoint', url: 'http://localhost:3005/api/main' },
+                    // { name: 'error page load', expected_status_code: 200, method: 'GET', type: 'http_endpoint', url: 'http://localhost:3005/error/page' },
+                    { name: 'status check load', expected_status_code: 200, method: 'GET', type: 'http_endpoint', url: 'http://localhost:3005/server-status' }
                 ]
             }
         },

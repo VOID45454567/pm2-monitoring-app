@@ -113,23 +113,23 @@ export const mailController = () => ({
 <body>
     <div class="container">
         <div class="header">
-            <h1>⚠️ Обнаружены проблемы</h1>
+            <h1>Обнаружены проблемы</h1>
             <p>Требуется внимание администратора</p>
         </div>
         
         <div class="content">
             <div class="alert-box">
-                <strong>🔔 Внимание!</strong> Обнаружены проблемы в работе сервисов.
+                <strong>Внимание!</strong> Обнаружены проблемы в работе сервисов.
                 <br>
                 <strong>Количество проблем:</strong> ${problemCount}
             </div>
             
-            <h3>📋 Проблемные сервисы:</h3>
+            <h3>Проблемные сервисы:</h3>
             <ul class="problem-list">
                 ${problems.map(problem => `
                     <li class="problem-item">
                         <div class="problem-service">
-                            ❌ ${problem.service}
+                             ${problem.service}
                             <span class="badge">${problem.failedEndpoints?.length || 0} ошибок</span>
                         </div>
                         <div class="problem-detail">

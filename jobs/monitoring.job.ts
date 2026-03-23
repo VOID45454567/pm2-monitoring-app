@@ -2,7 +2,7 @@ import cron from 'node-cron';
 import { checkAndSendProblems } from '../services/notification.service';
 
 export const startMonitoringScheduler = () => {
-    console.log('🕐 Запуск планировщика мониторинга...');
+    console.log('Запуск планировщика мониторинга');
 
     cron.schedule('0 * * * *', async () => {
         await checkAndSendProblems();

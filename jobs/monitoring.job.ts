@@ -16,9 +16,9 @@ export const startMonitoringScheduler = () => {
     console.log('Планировщик запущен. Проверка каждые 1 час');
 };
 
-export const startMonitoringForTest = () => {
-    console.log('Тестовый режим: проверка каждые 5 минут');
-    cron.schedule('*/5 * * * *', async () => {
-        await checkAndSendProblems();
-    });
-};
+// export const startMonitoringForTest = () => {
+//     console.log('Тестовый режим - каждые 5 минут');
+//     cron.schedule('*/5 * * * *', async () => {
+//         await checkAndSendProblems();
+//     });
+// };

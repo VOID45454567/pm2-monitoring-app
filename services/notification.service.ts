@@ -91,7 +91,7 @@ const createProblemAlertHTML = (summary: any): string => {
 
 export const checkAndSendProblems = async () => {
     try {
-        console.log(`[${new Date().toISOString()}] 🔍 Проверка состояния сервисов...`);
+        console.log(`[${new Date().toISOString()}] Проверка состояния сервисов...`);
 
         const summary = await controller.getTestSummary();
 

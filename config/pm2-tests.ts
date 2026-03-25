@@ -11,7 +11,8 @@ export const PM2_TEST_CONFIG: Pm2Tests = {
                 smtp_server: 'smtp.gmail.com',
                 smtp_password: 'atrd pzme zcmt fnab',
                 smtp_from: 'void.noreply.test@gmail.com',
-                smtp_user: 'void.noreply.test@gmail.com'
+                smtp_user: 'void.noreply.test@gmail.com',
+                service_name: 'gmail'
             },
             push: {
                 enabled: false

@@ -1,19 +1,15 @@
 import cron from 'node-cron';
-import { checkAndSendProblems } from '../services/notification.service';
+import { mailController } from '../controllers/mail.controller';
+
+const controller = await mailController()
 
 export const startMonitoringScheduler = () => {
     console.log('Запуск планировщика мониторинга');
 
-    cron.schedule('0 * * * *', async () => {
-        await checkAndSendProblems();
+    cron.schedule('*/30 * * * *', async () => {
+        await controller.checkAndSendProblems()
     });
-
-    setTimeout(() => {
-        console.log('Первоначальная проверка');
-        checkAndSendProblems();
-    }, 5000);
-
-    console.log('Планировщик запущен. Проверка каждые 1 час');
+    console.log('Планировщик запущен. Проверка каждые 30 минут');
 };
 
 // export const startMonitoringForTest = () => {

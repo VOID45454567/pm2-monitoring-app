@@ -2,21 +2,18 @@ import express from 'express'
 import pm2Router from './routes/pm2.router'
 import testRouter from './routes/test.router'
 import cors from 'cors'
-import mailRouter from './routes/mail.router'
 import { startMonitoringScheduler } from './jobs/monitoring.job'
 const app = express()
 app.use(express.json())
 
-const PORT = 3003
+const PORT = 3004
 app.use(express.json());
 app.use(cors({ methods: ['*'] }))
 app.use('/api/pm2', pm2Router);
 app.use('/api/tests', testRouter);
-app.use('/api/mail', mailRouter);
 app.get('/', (req, res) => {
     res.json({
         name: 'PM2 Monitor & Test System',
-        version: '1.0.0',
         endpoints: {
             processes: {
                 list: 'GET /api/pm2/processes',

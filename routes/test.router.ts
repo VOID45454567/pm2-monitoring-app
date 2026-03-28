@@ -14,10 +14,10 @@ router.get('/summary', async (_, res) => {
     res.json(summary);
 });
 
-router.get('/:processName', async (req, res) => {
-    const { processName } = req.params;
+router.get('/:processId', async (req, res) => {
+    const { processId } = req.params;
     try {
-        const test = await controller.getTestForProcess(processName);
+        const test = await controller.getTestForProcess(+processId);
         res.json(test);
     } catch (error) {
         res.status(404).json({

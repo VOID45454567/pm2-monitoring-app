@@ -17,9 +17,10 @@ class TestService {
         );
     }
 
-    async runTestForProcess(processName: string): Promise<TestResult> {
-        const service = PM2_TEST_CONFIG.services.find(s => s.name === processName);
-        if (!service) throw new Error(`Service ${processName} not found in config`);
+    async runTestForProcess(pm2ProcessId: number): Promise<TestResult> {
+        const service = PM2_TEST_CONFIG.services.find(s => s.pm2ID === pm2ProcessId);
+
+        if (!service) throw new Error(`Service with ${pm2ProcessId} not found in config`);
 
         const processes = await pm2Api.getProcesses();
         return this.runTestForService(service, processes);

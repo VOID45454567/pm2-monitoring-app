@@ -21,7 +21,7 @@ export const PM2_TEST_CONFIG: Pm2Tests = {
     },
     services: [
         {
-            pm2ID: 1,
+            pm2ID: 0,
             id: 'serverOne',
             name: 'server one',
             pm2_process_name: 'sever-one',
@@ -40,7 +40,7 @@ export const PM2_TEST_CONFIG: Pm2Tests = {
             }
         },
         {
-            pm2ID: 2,
+            pm2ID: 1,
             id: 'serverTwo',
             name: 'server two',
             pm2_process_name: 'sever-two',

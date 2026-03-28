@@ -9,14 +9,11 @@ export const pm2Controller = () => ({
         return formatProcesses(processes);
     },
 
-    async getProcessDetails(name: string, lines = '30') {
-        const [processes, logs] = await Promise.all([
-            pm2Api.getProcesses(),
-            logReader.getAll(name, +lines)
+    async getProcessDetails(pm2Id: string, lines = '30') {
+        const [logs] = await Promise.all([
+            logReader.getAll(pm2Id, +lines)
         ]);
-
         return {
-            process: formatProcesses(processes.filter(p => p.name === name)),
             ...logs
         };
     },

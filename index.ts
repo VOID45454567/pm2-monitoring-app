@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
     });
 });
 
-startMonitoringScheduler();
+// startMonitoringScheduler();
 
 
 const bootstrap = async (port: number) => {

@@ -9,11 +9,11 @@ router.get('/processes', async (req, res) => {
     res.json({ status: 'ok', processes });
 });
 
-router.get('/process/:name', async (req, res) => {
-    const { name } = req.params;
+router.get('/process/:pm2Id', async (req, res) => {
+    const { pm2Id } = req.params;
     const { lines } = req.query;
 
-    const details = await controller.getProcessDetails(name, lines as string);
+    const details = await controller.getProcessDetails(pm2Id, lines as string);
     res.json({ status: 'ok', ...details });
 });
 

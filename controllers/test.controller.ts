@@ -7,8 +7,9 @@ export const testController = () => ({
         return testService.runAllTests();
     },
 
-    async getTestForProcess(processName: string) {
-        return testService.runTestForProcess(processName);
+    async getTestForProcess(pm2ProcessId: number) {
+
+        return testService.runTestForProcess(pm2ProcessId);
     },
 
     async getTestSummary() {

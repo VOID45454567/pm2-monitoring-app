@@ -1,8 +1,10 @@
 import path from 'path';
 import os from 'os';
 import { promises as fs } from 'fs';
+import { pm2Api } from '.';
 
 type LogType = 'error' | 'out';
+
 
 class LogReader {
     private getLogPath(name: string, type: LogType): string {
@@ -18,7 +20,11 @@ class LogReader {
         }
     }
 
-    async getAll(name: string, lines: number = 15) {
+    async getAll(pm2Id: string, lines: number = 15) {
+        const processes = await pm2Api.getProcesses()
+
+        const name = processes.find(p => p.pm_id === +pm2Id)?.name!
+
         const [out, error] = await Promise.all([
             this.getLines(name, 'out', lines),
             this.getLines(name, 'error', lines)
